@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .modal{
+            position: relative;
+            top: 20vh;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #a1acb4;
+            width: 200px;
+            height: 100px;
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #909090;
+            box-shadow: 3px 4px 18px -3px rgba(0,0,0,0.75);
+        }
+
+        .modal__link{
+            padding: 5px;
+        }
+
+        .modal__link-item{
+            text-decoration: none;
+            color: #bc0000;
+            font-weight: bolder;
+        }
+
+        .button{
+            padding: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.51);
+            border-radius: 2px;
+            background-color: rgb(175, 190, 199);
+            transition: 0.1s;
+        }
+
+        .button:hover{
+            box-shadow: 3px 4px 18px -3px rgba(0,0,0,0.75);
+            transition: 0.1s;
+        }
+
+        .disable{
+            pointer-events:none
+        }
+
+        .section{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <button class="button">Open</button>
+    </section>
+
+<script type="text/javascript">
+    let button = document.querySelector('.button');
+    let body = document.querySelector("body");
+
+    (function popup() {
+        button.addEventListener('click', (event) => {
+            let modal= document.createElement("div");
+            modal.classList.add("modal");
+            modal.innerHTML = `
+                    <span class="modal__link">Link:
+                        <a href="3.html" class="modal__link-item">3.html</a>
+                    </span>
+                    <button class="button">Close</button>`;
+            modal.querySelector(".button").addEventListener('click', () =>{
+                document.querySelector("body").removeChild(modal);
+                document.querySelector(".section").style.opacity= "1";
+                document.querySelector(".section").classList.remove("disable");
+            });
+            document.querySelector(".section").classList.add("disable");
+            document.querySelector(".section").style.opacity= "0.5";
+            body.appendChild(modal);
+        })
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .section{
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 30%;
+        }
+
+        .section__form{
+            padding: 10px 0;
+            display: flex;
+        }
+        .section__label{
+            flex-basis: 80%;
+        }
+
+        .section__input{
+            width: 100%;
+            height: 30px;
+            font-size: 15px;
+        }
+
+        .section__table{
+            border-collapse: collapse;
+        }
+        td{
+            padding: 5px;
+            border: 1px solid #000000;
+        }
+
+        .section__button{
+            margin: 0 0 0 5px;
+            height: 30px;
+            flex-basis: 20%;
+            padding: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.51);
+            border-radius: 2px;
+            background-color: rgb(175, 190, 199);
+            transition: 0.1s;
+        }
+
+        .section__button:hover{
+            box-shadow: 3px 4px 18px -3px rgba(0,0,0,0.75);
+            transition: 0.1s;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <form class="section__form">
+            <label class="section__label">
+                <input type="text" class="section__input">
+            </label>
+            <button class="section__button" type="submit">Search</button>
+        </form>
+        <table class="section__table"></table>
+    </section>
+
+<script type="text/javascript">
+    let table = document.querySelector(".section__table");
+    let input = document.querySelector(".section__input");
+    let form = document.querySelector(".section__form");
+    const listOfItems = ['Walmart','State Grid','Sinopec Group','China National Petroleum',
+        'Royal Dutch Shell','Toyota Motor','Volkswagen','BP','Exxon Mobil',
+        'Berkshire Hathaway'];
+
+    let filterListOfItems;
+
+    function renderList(listOfItems) {
+        table.innerHTML= '';
+        listOfItems.forEach((element)=>{
+            let row = document.createElement('tr');
+            row.innerHTML =`
+            <td>${element}</td>
+        `;
+            table.appendChild(row);
+        })
+    }
+
+    renderList(listOfItems);
+
+    function filtration() {
+        let filterListOfItems = listOfItems.filter((element)=>{
+            let inputValue = input.value.replace(/ /g,'');
+            if(inputValue.length>0){
+                return element.replace(/ /g,'').toUpperCase().includes(input.value.toUpperCase())
+            }else{
+                return true;
+            }
+        });
+        return filterListOfItems;
+    }
+
+    form.addEventListener('submit',(event)=>{
+        event.preventDefault();
+        filterListOfItems = filtration();
+        renderList(filterListOfItems);
+    });
+
+    window.addEventListener("keydown", (event) => {
+        if ( event.code === "Enter") {
+            event.preventDefault();
+            filterListOfItems = filtration();
+            renderList(filterListOfItems)
+        }
+    });
+</script>
+</body>
+</html>

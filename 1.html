@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            min-height: 600px;
+        }
+
+        .header {
+            height: 100px;
+            background-color:#1a1c22;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .aside{
+            min-height: 185px;
+            background-color:#6C757D;
+            margin-bottom: 15px;
+        }
+
+        .main{
+            display: flex;
+            flex-direction: column;
+            min-height: 185px;
+        }
+
+        .main__content1 {
+            background-color: #343A40;
+            min-height: calc((200px / 6) - 15px);
+            margin-bottom: 15px;
+        }
+        .main__content2 {
+            background-color: #343A40;
+            min-height: calc((200px / 6) - 15px);
+            margin-bottom: 15px;
+        }
+        .main__content3 {
+            background-color: #343A40;
+            min-height: calc((200px / 6) - 15px);
+            margin-bottom: 15px;
+        }
+        .main__content4 {
+            background-color: #343A40;
+            min-height: calc((200px / 6) - 15px);
+            margin-bottom: 15px;
+        }
+        .main__content5 {
+            background-color: #343A40;
+            min-height: calc((200px / 6) - 15px);
+            margin-bottom: 15px;
+        }
+        .main__content6 {
+            background-color: #343A40;
+            min-height: calc((200px / 6) - 15px);
+        }
+
+        .footer{
+            background-color:#1a1c22;
+            height: 100px;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .main{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                margin-bottom: 15px;
+            }
+
+            .main__content1{
+                width: calc(50% - 7.5px);
+                margin-right: 7.5px;
+            }
+
+            .main__content2{
+                width: calc(50% - 7.5px);
+                margin-left: 7.5px;
+            }
+
+            .main__content3{
+                width: calc(50% - 7.5px);
+                margin-right: 7.5px;
+            }
+
+            .main__content4{
+                width: calc(50% - 7.5px);
+                margin-left: 7.5px;
+            }
+
+            .main__content5{
+                width: calc(50% - 7.5px);
+                margin-right: 7.5px;
+                margin-bottom: 0;
+            }
+
+            .main__content6{
+                width: calc(50% - 7.5px);
+                margin-left: 7.5px;
+                margin-bottom: 0;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+            }
+
+            .header {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .aside{
+                /*grid-column: col-start / 6 ;*/
+                width: 400px;
+                margin-right: 15px;
+                margin-bottom: 15px;
+                /*grid-row: 2/3;*/
+            }
+
+            .main{
+                /*grid-column: col-start 6 / -1;*/
+                width: calc(100% - 415px);
+                /*grid-row: 2/3;*/
+                height: 400px;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-bottom: 15px;
+            }
+
+            .main__content1{
+                height: initial;
+            }
+
+            .main__content2{
+                height: initial;
+            }
+
+            .main__content3{
+                height: initial;
+            }
+
+            .main__content4{
+                height: initial;
+            }
+
+            .main__content5{
+                height: initial;
+            }
+
+            .main__content6{
+                height: initial;
+            }
+
+            .aside{
+                height: 400px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+
+            .main__content1 {
+                width: calc(33.33% - 10px);
+                margin-right: 10px;
+                height: 192.5px;
+                margin-bottom: 15px;
+            }
+            .main__content2 {
+                width: calc(33.33% - 10px);
+                margin: 0 5px;
+                height: 192.5px;
+                margin-bottom: 15px;
+            }
+            .main__content3 {
+                width: calc(33.33% - 10px);
+                margin-left: 10px;
+                height: 192.5px;
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+
+            .main__content4 {
+                width: calc(33.33% - 10px);
+                margin-right: 10px;
+                height: 192.5px;
+                margin-bottom: 15px;
+                margin-left: 0;
+            }
+            .main__content5 {
+                width: calc(33.33% - 10px);
+                margin: 0 5px;
+                height: 192.5px;
+                margin-bottom: 15px;
+            }
+            .main__content6 {
+                width: calc(33.33% - 10px);
+                margin-left: 10px;
+                height: 192.5px;
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+        }
+
+        @media screen and ( min-height: 630px ) and ( max-width: 599px ){
+            .aside{
+                height: calc(50vh - 115px);
+            }
+
+            .main{
+                height: calc(50vh - 115px);
+            }
+
+            .main__content1 {
+                height: calc((50vh - 115px) / 6 - 15px );
+            }
+            .main__content2 {
+                height: calc((50vh - 115px) / 6 - 15px );
+            }
+            .main__content3 {
+                height: calc((50vh - 115px) / 6 - 15px );
+            }
+            .main__content4 {
+                height: calc((50vh - 115px) / 6 - 15px );
+            }
+            .main__content5 {
+                height: calc((50vh - 115px) / 6 - 15px );
+            }
+            .main__content6 {
+                height: calc((50vh - 115px) / 6 - 15px );
+            }
+        }
+
+        @media screen and ( min-height: 630px ) and ( max-width: 899px ) and ( min-width: 600px ){
+            .aside{
+                height: calc(50vh - 115px);
+            }
+
+            .main{
+                height: calc(50vh - 115px);
+            }
+
+            .main__content1 {
+                height: calc((50vh - 115px) / 3 - 15px );
+            }
+            .main__content2 {
+                height: calc((50vh - 115px) / 3 - 15px );
+            }
+            .main__content3 {
+                height: calc((50vh - 115px) / 3 - 15px );
+            }
+            .main__content4 {
+                height: calc((50vh - 115px) / 3 - 15px );
+            }
+            .main__content5 {
+                height: calc((50vh - 115px) / 3 - 15px );
+            }
+            .main__content6 {
+                height: calc((50vh - 115px) / 3 - 15px );
+            }
+        }
+
+    </style>
+</head>
+<body class="container">
+    <header class="header"></header>
+    <aside class="aside"></aside>
+    <main class="main">
+        <div class="main__content1"></div>
+        <div class="main__content2"></div>
+        <div class="main__content3"></div>
+        <div class="main__content4"></div>
+        <div class="main__content5"></div>
+        <div class="main__content6"></div>
+    </main>
+    <footer class="footer"></footer>
+</body>
+</html>
